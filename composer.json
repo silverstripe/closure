@@ -1,5 +1,5 @@
 {
-    "name": "opis/closure",
+    "name": "silverstripe/closure",
     "description": "A library that can be used to serialize closures (anonymous functions) and arbitrary objects.",
     "keywords": ["closure", "serialization", "function", "serializable", "serialize", "anonymous functions"],
     "homepage": "https://opis.io/closure",
@@ -15,7 +15,10 @@
         }
     ],
     "require": {
-        "php": "^5.4 || ^7.0 || ^8.0"
+        "php": "^8.1"
+    },
+    "replace": {
+        "opis/closure":"3.*"
     },
     "require-dev": {
         "jeremeamia/superclosure": "^2.0",
@@ -30,11 +33,6 @@
     "autoload-dev": {
         "psr-4": {
             "Opis\\Closure\\Test\\": "tests/"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "3.6.x-dev"
         }
     },
     "config": {
