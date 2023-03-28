@@ -15,7 +15,7 @@ use ReflectionObject;
 /**
  * Provides a wrapper for serialization of closures
  */
-class SerializableClosure implements Serializable
+class SerializableClosure
 {
     /**
      * @var Closure Wrapped closure
@@ -109,12 +109,19 @@ class SerializableClosure implements Serializable
         return call_user_func_array($this->closure, func_get_args());
     }
 
+    public function __serialize(): array
+    {
+        return [
+            'serialized' => $this->serialize()
+        ];
+    }
+
     /**
      * Implementation of Serializable::serialize()
      *
      * @return  string  The serialized closure
      */
-    public function serialize()
+    private function serialize()
     {
         if ($this->scope === null) {
             $this->scope = new ClosureScope();
@@ -178,13 +185,18 @@ class SerializableClosure implements Serializable
         return $data;
     }
 
+    public function __unserialize(array $data): void
+    {
+        $this->unserialize($data['serialized']);
+    }
+
     /**
      * Implementation of Serializable::unserialize()
      *
      * @param   string $data Serialized data
      * @throws SecurityException
      */
-    public function unserialize($data)
+    private function unserialize($data)
     {
         ClosureStream::register();
 
