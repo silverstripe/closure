@@ -378,7 +378,7 @@ class SerializableClosure
      * @param $data
      * @param ClosureScope|SplObjectStorage|null $storage
      */
-    public static function wrapClosures(&$data, SplObjectStorage $storage = null)
+    public static function wrapClosures(&$data, ?SplObjectStorage $storage = null)
     {
         if($storage === null){
             $storage = static::$context->scope;
@@ -451,7 +451,7 @@ class SerializableClosure
      * @param $data
      * @param SplObjectStorage|null $storage
      */
-    public static function unwrapClosures(&$data, SplObjectStorage $storage = null)
+    public static function unwrapClosures(&$data, ?SplObjectStorage $storage = null)
     {
         if($storage === null){
             $storage = static::$context->scope;
