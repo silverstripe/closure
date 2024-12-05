@@ -1,3 +1,11 @@
+# Archived
+
+This repository was forked from [opis/closure](https://github.com/opis/closure) which was no longer being maintained and was not entirely compatible with Silverstripe CMS 5.
+
+Silverstripe CMS 6 switched to using [laravel/serializable-closure](https://github.com/laravel/serializable-closure) instead. If you are working on anything but a Silverstripe CMS 5 project you should use that library instead of this one.
+
+This fork is no longer maintained and is only here so that it can continue to be used with Silverstripe CMS 5.
+
 Opis Closure
 ====================
 [![Tests](https://github.com/opis/closure/workflows/Tests/badge.svg)](https://github.com/opis/closure/actions)
